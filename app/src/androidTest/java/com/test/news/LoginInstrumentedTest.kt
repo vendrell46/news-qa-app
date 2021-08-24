@@ -7,11 +7,16 @@ import com.test.news.features.login.presentation.LoginActivity
 import com.test.news.utils.*
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.endsWith
 import org.junit.Rule
 import org.junit.Test
 
+private const val FIRST_POSITION = 0
 private const val VALID_USER_NAME = "user1"
 private const val VALID_USER_PASSWORD = "password"
+private const val INVALID_USER_NAME = "uuuser1"
+private const val INVALID_USER_PASSWORD = "pppassword"
+
 
 class LoginInstrumentedTest {
 
@@ -28,7 +33,7 @@ class LoginInstrumentedTest {
         val firstImage: Matcher<View> = allOf(
             withId(image),
             isDescendantOfA(
-                childAtPosition(withId(recyclerView), 0)
+                childAtPosition(withId(recyclerView), FIRST_POSITION)
             )
         )
 
@@ -37,5 +42,28 @@ class LoginInstrumentedTest {
         clickOn(buttonLogin)
 
         firstImage.awaitUntilDisplayed()
+    }
+
+    @Test
+    fun testLoginFailsWithWrongCredentials() {
+        val editTextUserName = R.id.editTextUserName
+        val editTextPassword = R.id.editTextPassword
+        val buttonLogin = R.id.buttonLogin
+        val wrongLabelPopup: Matcher<View> =
+            withClassName(
+                endsWith("AppCompatTextView")
+            )
+
+        typeTextOn(editTextUserName, VALID_USER_NAME)
+        typeTextOn(editTextPassword, INVALID_USER_PASSWORD)
+        clickOn(buttonLogin)
+
+        wrongLabelPopup.awaitUntilDisplayed()
+
+        typeTextOn(editTextUserName, INVALID_USER_NAME)
+        typeTextOn(editTextPassword, VALID_USER_PASSWORD)
+        clickOn(buttonLogin)
+
+        wrongLabelPopup.awaitUntilDisplayed()
     }
 }
