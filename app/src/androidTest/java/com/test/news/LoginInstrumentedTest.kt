@@ -1,36 +1,41 @@
 package com.test.news
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.clearText
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.typeText
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import android.view.View
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.test.news.features.login.presentation.LoginActivity
-import junit.framework.Assert.assertTrue
+import com.test.news.utils.*
+import org.hamcrest.Matcher
+import org.hamcrest.Matchers.allOf
 import org.junit.Rule
 import org.junit.Test
+
+private const val VALID_USER_NAME = "user1"
+private const val VALID_USER_PASSWORD = "password"
 
 class LoginInstrumentedTest {
 
     @get:Rule
-    var activityTestRule = ActivityTestRule<LoginActivity>(LoginActivity::class.java)
+    val activityTestRule = ActivityTestRule(LoginActivity::class.java)
 
     @Test
-    fun shouldLoginWithValidCredentials() {
-        onView(withId(R.id.editTextUserName))
-            .perform(clearText(), typeText(VALID_USER_NAME))
-        onView(withId(R.id.editTextPassword))
-            .perform(clearText(), typeText(VALID_USER_PASSWORD))
-        onView(withId(R.id.buttonLogin))
-            .perform(click())
+    fun testLoginSuccessfulWithValidCredentials() {
+        val editTextUserName = R.id.editTextUserName
+        val editTextPassword = R.id.editTextPassword
+        val buttonLogin = R.id.buttonLogin
+        val recyclerView = R.id.recyclerViewNews
+        val image = R.id.imageView
+        val firstImage: Matcher<View> = allOf(
+            withId(image),
+            isDescendantOfA(
+                childAtPosition(withId(recyclerView), 0)
+            )
+        )
 
-        // TODO assert login when ready
-        assertTrue(activityTestRule.activity.isFinishing)
-    }
+        typeTextOn(editTextUserName, VALID_USER_NAME)
+        typeTextOn(editTextPassword, VALID_USER_PASSWORD)
+        clickOn(buttonLogin)
 
-    companion object {
-        private const val VALID_USER_NAME = "user1"
-        private const val VALID_USER_PASSWORD = "password"
+        firstImage.awaitUntilDisplayed()
     }
 }
