@@ -11,6 +11,10 @@ fun clickOn(@IdRes id: Int) {
     onView(withId(id)).perform(click())
 }
 
+fun clickOn(viewMatcher: Matcher<View>) {
+    onView(viewMatcher).perform(click())
+}
+
 fun typeTextOn(@IdRes id: Int, text: String) {
     onView(withId(id)).perform(clearText())
     onView(withId(id)).perform(typeText(text))

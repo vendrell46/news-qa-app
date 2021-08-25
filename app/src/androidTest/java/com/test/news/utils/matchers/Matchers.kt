@@ -1,4 +1,4 @@
-package com.test.news.utils
+package com.test.news.utils.matchers
 
 import android.view.View
 import android.view.ViewGroup
