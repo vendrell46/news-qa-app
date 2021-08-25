@@ -1,6 +1,117 @@
 # Sliide QA Technical Test
-## Congratulations, you have reached the next stage which is solving a Sliide practical test.
-##### Please create your own repo and share the solution with us
+
+## What has been done
+### Wrappers
+I have started the framework by adding my own wrappers on top of Espresso to ease tests automation
+and to make them more readable.
+
+Also, a set of wrappers have been added in utils/Validations.kt in order to handle delays on
+instrumented tests while switching activities.
+
+### Tests
+Following the scenarios provided I have automated all of them but one, which is meant to be 
+executed manually without internet connection. And scenarios 1 and 3 are covered with one test. 
+(Please refer to the commit descriptions for more specific information)
+
+### Page Object Pattern
+I have followed Page Object Pattern by splitting classes by pages, hence having Elements class for 
+elements and a Actions class for both interactions and assertions.
+
+
+
+## Bugs
+*Device used:* Pixel
+*OS Version:* 9.0
+
+
+*Title*
+First image in news page gets resized after swiping horizontally
+
+*Summary/Description:*
+When landing in news screen and swiping left to check the other images in the same carousel
+and going back to the first one on the left, it has changed its size.
+
+
+*Steps to recreate:*
+1. Log in
+2. Swipe left two times
+3. Swipe right back to first image
+
+
+*Actual:* image has changed size
+*Expected:* image should not change size
+
+*Video* 
+
+
+__________________________________________________________
+
+*Title*
+Inconsistency on behaviour when swiping left images
+
+*Summary/Description:*
+By making the same gesture on screen to swipe left on first row image displayed in News page
+it switches to the following image, yet when doing the same gesture to swipe left on the second
+row image, it does not stays in the second one but continues to the third available image.
+
+
+*Steps to recreate:*
+1. Log in
+2. Swipe first row image left once 
+3. Swipe second row image left once
+
+
+*Actual:* second image gets skipped
+*Expected:* after swiping, second image should be blocked
+
+*Video* 
+
+
+__________________________________________________________
+
+*Title*
+User gets logged out after hard closing the app
+
+*Summary/Description:*
+When user logs in to News page and hard closes the app, on relaunch it is not logged in anymore.
+
+
+*Steps to recreate:*
+1. Log in
+2. hard close the app
+3. relaunch
+
+
+*Actual:* log in page displayed
+*Expected:* news page should be displayed
+
+*Video* 
+
+
+__________________________________________________________
+
+*Title*
+User gets logged out soft closing the app when offline
+
+*Summary/Description:*
+While offline and logged in, soft closing the app logs out user
+
+
+*Steps to recreate:*
+1. Log in
+2. tap device back button
+3. relaunch
+
+
+*Actual:* log in page displayed
+*Expected:* news page should be displayed
+
+*Video* 
+
+
+
+
+## Task
 
 ### Description
 During the test we want you to imagine yourself as a member of our team, with a collective goal of getting our tasks completed. 
