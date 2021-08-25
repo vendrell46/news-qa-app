@@ -136,6 +136,10 @@ Some issues with gradle were blocking me to handle interactions with WebView:
  leave it aside and continue with the task to not get stuck and lose a lot of time.
 
 
+## Conclusion
+As for the two tickets on Jira board mentioned on the task, I would have to move them back to *Ready for Development* column and write a comment for each with detailed information about what is not working as per acceptance criteria.
+
+
 ## Task
 
 ### Description
