@@ -20,93 +20,109 @@ elements and a Actions class for both interactions and assertions.
 
 
 ## Bugs
-*Device used:* Pixel
+*Device used:* Pixel, 
 *OS Version:* 9.0
 
 
-*Title*
+#### *Title:*
 First image in news page gets resized after swiping horizontally
 
-*Summary/Description:*
+#### *Summary/Description:*
 When landing in news screen and swiping left to check the other images in the same carousel
 and going back to the first one on the left, it has changed its size.
 
 
-*Steps to recreate:*
+#### *Steps to recreate:*
 1. Log in
 2. Swipe left two times
 3. Swipe right back to first image
 
 
-*Actual:* image has changed size
-*Expected:* image should not change size
+#### *Actual:* 
+image has changed size
+#### *Expected:* 
+image should not change size
 
-*Video* 
+#### *Video* 
+https://user-images.githubusercontent.com/23363641/130869559-ea0cea15-a3c7-4f46-a449-0e9f284c5df3.mov
+
 
 
 __________________________________________________________
 
-*Title*
+#### *Title*
 Inconsistency on behaviour when swiping left images
 
-*Summary/Description:*
+#### *Summary/Description:*
 By making the same gesture on screen to swipe left on first row image displayed in News page
 it switches to the following image, yet when doing the same gesture to swipe left on the second
 row image, it does not stays in the second one but continues to the third available image.
 
 
-*Steps to recreate:*
+#### *Steps to recreate:*
 1. Log in
 2. Swipe first row image left once 
 3. Swipe second row image left once
 
 
-*Actual:* second image gets skipped
-*Expected:* after swiping, second image should be blocked
+#### *Actual:* 
+second image gets skipped
+#### *Expected:* 
+after swiping, second image should be blocked
 
-*Video* 
+#### *Video* 
+https://user-images.githubusercontent.com/23363641/130869887-cd719b3e-f83f-4377-a8a9-776a1c310fb3.mov
+
 
 
 __________________________________________________________
 
-*Title*
+#### *Title*
 User gets logged out after hard closing the app
 
-*Summary/Description:*
+#### *Summary/Description:*
 When user logs in to News page and hard closes the app, on relaunch it is not logged in anymore.
 
 
-*Steps to recreate:*
+#### *Steps to recreate:*
 1. Log in
 2. hard close the app
 3. relaunch
 
 
-*Actual:* log in page displayed
-*Expected:* news page should be displayed
+#### *Actual:* 
+log in page displayed
+#### *Expected:* 
+news page should be displayed
 
-*Video* 
+#### *Video* 
+https://user-images.githubusercontent.com/23363641/130869951-9ebdc31a-69a9-41a7-863d-0c3a0ecc9576.mp4
+
 
 
 __________________________________________________________
 
-*Title*
+#### *Title*
 User gets logged out soft closing the app when offline
 
-*Summary/Description:*
+#### *Summary/Description:*
 While offline and logged in, soft closing the app logs out user
 
 
-*Steps to recreate:*
+#### *Steps to recreate:*
 1. Log in
 2. tap device back button
 3. relaunch
 
 
-*Actual:* log in page displayed
-*Expected:* news page should be displayed
+#### *Actual:* 
+log in page displayed
+#### *Expected:* 
+news page should be displayed
 
-*Video* 
+#### *Video* 
+https://user-images.githubusercontent.com/23363641/130870076-d32f2840-1ea6-4348-bcb5-e914a9279507.mp4
+
 
 
 
