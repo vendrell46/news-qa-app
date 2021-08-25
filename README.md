@@ -124,7 +124,16 @@ news page should be displayed
 https://user-images.githubusercontent.com/23363641/130870076-d32f2840-1ea6-4348-bcb5-e914a9279507.mp4
 
 
+## What can be improved
+- I have tried to introduce Hilt Android as my Dependency Injection framework but due to dagger's existence in the framework I encountered a lot of
+time consuming conflicts and issues on runtime. So, considering the limited time I had for the task I have left it aside as an improvement. An alternative would
+be to use Koin as DI framework only for automation.
 
+Some issues with gradle were blocking me to handle interactions with WebView:
+ - at first I have tried by adding Intent validations for the url, but unfortunately I have encountered a few issues on runtime that decided to skip
+ after a couple of hours of investigation.
+ - then I found the possibility to introduce espresso-webview library to interact with *onWebView* but after some attempts to make it work I had to leave 
+ leave it aside and continue with the task to not get stuck and lose a lot of time.
 
 
 ## Task
